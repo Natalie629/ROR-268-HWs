@@ -1,6 +1,6 @@
 # 剪刀石頭布
 
-def get_user
+def ask_user
 	begin 
 	puts "Please choose one of the following: R ✊ / P ✋ / S ✌️ "
 	user_input = gets.chomp.upcase
@@ -9,7 +9,7 @@ def get_user
   user_input
 end
 
-def get_computer
+def ask_computer
   ["R","P","S"].shuffle!.last
 end
 
@@ -52,6 +52,7 @@ def get_input(input)
 
   gestures[input]
 end
+
 def print_result(user_input, computer_input, message)
 
   puts "==================================="
@@ -60,7 +61,7 @@ def print_result(user_input, computer_input, message)
   puts "==================================="
 end
 
-def continue_the_game
+def play_again
   begin
     puts "Do You Want To Play Again?: Y / N"
     continue = gets.chomp.upcase
@@ -73,12 +74,12 @@ end
 begin
 	puts "<<<<<  Welcome to Rock Paper Scissors!!!  >>>>>"
 
-  user_input = get_user()
-	computer_input = get_computer()
+  user_input = ask_user()
+	computer_input = ask_computer()
 
   message = check_game(user_input, computer_input)
   print_result(user_input, computer_input, message)
-  continue = continue_the_game
+  continue = play_again
 
 end while continue == "Y"
 puts "<<<<<  Thanks for playing Rock Paper Scissors!!!  >>>>>"
